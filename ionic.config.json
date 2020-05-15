@@ -1,5 +1,7 @@
 {
-	"name": "FXCalculator",
-	"integrations": {},
-	"type": "angular"
+  "name": "FXCalculator",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
 }
