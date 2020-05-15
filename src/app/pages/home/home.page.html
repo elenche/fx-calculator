@@ -1,0 +1,66 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>
+			Foreign Exchange Calculator
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div id="container">
+		<p id="subtitle">How much would you like to purchase?</p>
+
+		<ion-grid>
+			<ion-row class="row-input">
+				<ion-col size="9">
+					<ion-item lines="none">
+						<ion-label position="stacked">Currency I want</ion-label>
+						<ion-input type="number"></ion-input>
+					</ion-item>
+				</ion-col>
+				<ion-col size="3" (click)="showCurrenciesPopover()">
+					<ion-icon name="globe"></ion-icon>
+					<span>USD</span>
+					<ion-icon name="chevron-down"></ion-icon>
+				</ion-col>
+			</ion-row>
+
+			<ion-row class="row-extras row-info ion-padding-top">
+				<ion-col size="1">
+					<span class="span-dot"></span>
+				</ion-col>
+				<ion-col size="11">
+					<p>1.1020 Exchange rate</p>
+				</ion-col>
+			</ion-row>
+
+			<ion-row class="row-extras row-swap ion-padding-bottom" (click)="swap()">
+				<ion-col size="1">
+					<ion-icon class="icon-swap" name="swap-vertical" color="primary"></ion-icon>
+				</ion-col>
+				<ion-col size="11">
+					<p>Swap</p>
+				</ion-col>
+			</ion-row>
+
+			<ion-row class="row-input">
+				<ion-col size="9">
+					<ion-item lines="none">
+						<ion-label position="stacked">Currency I have</ion-label>
+						<ion-input type="number"></ion-input>
+					</ion-item>
+				</ion-col>
+				<ion-col size="3" (click)="showCurrenciesPopover()">
+					<ion-icon name="globe"></ion-icon>
+					<span>EUR</span>
+					<ion-icon name="chevron-down"></ion-icon>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+
+		<div>
+			<ion-button color="tertiary" (click)="reset()">Reset</ion-button>
+			<ion-button color="primary" (click)="calculate()">Calculate</ion-button>
+		</div>
+	</div>
+</ion-content>

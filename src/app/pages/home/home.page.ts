@@ -9,4 +9,19 @@ export class HomePage {
 
 	constructor() { }
 
+	showCurrenciesPopover() {
+
+	}
+
+	swap() {
+
+	}
+
+	calculate() {
+
+	}
+
+	reset() {
+
+	}
 }
