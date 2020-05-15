@@ -69,6 +69,7 @@ export class HomePage implements OnInit {
 					}
 					else {
 						this.currencyTo = response.data;
+						this.currentRate = this.ratesService.getRate(this.currencyTo.code);
 					}
 
 					// Reset 'second' field to be recalculates

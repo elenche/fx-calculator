@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="elenche.app.fxconverter" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>FX Converter</name>
+<widget id="elenche.app.fxcalculator" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>FX Calculator</name>
     <description>Currency exchange application</description>
     <author>Elena Naumoska</author>
     <content src="index.html" />
