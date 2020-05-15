@@ -26,6 +26,9 @@ export class AppComponent {
 			// Get exchange rates
 			this.ratesService.getRatesByBase();
 
+			// Setup currency list
+			this.ratesService.setCurrencyList();
+
 			if (this.platform.is('cordova')) {
 				this.statusBar.styleDefault();
 				this.splashScreen.hide();

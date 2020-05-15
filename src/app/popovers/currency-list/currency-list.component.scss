@@ -1,0 +1,28 @@
+ion-searchbar input {
+	font-size: 30px !important;
+}
+
+ion-list {
+	padding: 0;
+
+	ion-list-header ion-label {
+		color: grey;
+	}
+
+	ion-item {
+		--min-height: 35px;
+
+		ion-label {
+			margin: 0;
+
+			span {
+				color: grey;
+			}
+
+			// Apply margin to middle span
+			span:nth-child(2) {
+				margin: 0 10px;
+			}
+		}
+	}
+}

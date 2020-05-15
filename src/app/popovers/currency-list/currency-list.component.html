@@ -1,0 +1,20 @@
+<ion-content>
+
+	<!-- Default Searchbar -->
+	<ion-searchbar placeholder="Type a currency/country" debounce="300" (ionChange)="getItems($event)"></ion-searchbar>
+
+	<ion-list>
+		<ion-list-header>
+			<ion-label>All currencies</ion-label>
+		</ion-list-header>
+
+		<ion-item lines="none" *ngFor="let currency of currencies" (click)="selectItem(currency)">
+			<ion-label>
+				<span [class]="'flag-icon flag-icon-' + currency.flag"></span>
+				<span>{{ currency.code }}</span>
+				<span>{{ currency.name }}</span>
+			</ion-label>
+		</ion-item>
+	</ion-list>
+
+</ion-content>
