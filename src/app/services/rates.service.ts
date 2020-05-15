@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { HttpService } from './http.service';
 import { CurrencyModel } from '../models/currency.model';
 
@@ -8,9 +9,10 @@ import { CurrencyModel } from '../models/currency.model';
 export class RatesService {
 
 	currencies: CurrencyModel[];
+	latestRates: any;
+	currentRate: number;
 
 	constructor(private httpService: HttpService) {
-
 	}
 
 	/**
@@ -18,9 +20,11 @@ export class RatesService {
 	 * @param base - base currency
 	 */
 	getRatesByBase(base: string = 'EUR') {
-		return this.httpService.get('https://api.exchangeratesapi.io/latest?base=' + base).subscribe((response) => {
-			console.log(response);
-		});
+		return this.httpService.get('https://api.exchangeratesapi.io/latest?base=' + base).pipe(map((response) => {
+			this.latestRates = response;
+			console.log('Rates: ', response);
+			return response;
+		}));
 	}
 
 	setCurrencyList() {
@@ -34,5 +38,14 @@ export class RatesService {
 			new CurrencyModel('Japanese Yen', 'JPY', 'jp'),
 			new CurrencyModel('New Zealand Dollar', 'NZD', 'nz'),
 		];
+	}
+
+	getCurrency(code: string): CurrencyModel {
+		return this.currencies.find(x => x.code === code);
+	}
+
+	getRate(code: string): number {
+		const num = 10000; // Round to 4 decimal spaces
+		return Math.round(this.latestRates.rates[code] * num) / num;
 	}
 }

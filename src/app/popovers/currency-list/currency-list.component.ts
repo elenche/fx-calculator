@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, NavParams } from '@ionic/angular';
 import { RatesService } from '../../services/rates.service';
 import { CurrencyModel } from '../../models/currency.model';
 
@@ -11,15 +11,20 @@ import { CurrencyModel } from '../../models/currency.model';
 export class CurrencyListComponent {
 
 	currencies: CurrencyModel[];
-
+	excludeCodes: string[];
 	constructor(public ratesService: RatesService,
-		private popoverCtrl: PopoverController) {
+		private popoverCtrl: PopoverController,
+		private navParams: NavParams) {
 
+		this.excludeCodes = this.navParams.get('ExcludeCodes');
 		this.initializeItems();
 	}
 
+	/**
+	 * Initialize 'currencies' list without the exclusion codes.
+	 */
 	private initializeItems() {
-		this.currencies = Object.assign(new Array<CurrencyModel>(), this.ratesService.currencies);
+		this.currencies = Object.assign(new Array<CurrencyModel>(), this.ratesService.currencies.filter(x => !this.excludeCodes.find(y => y === x.code)));
 	}
 
 	/**
@@ -33,7 +38,7 @@ export class CurrencyListComponent {
 
 		if (value && value.trim() !== '') {
 			this.currencies = this.currencies.filter(item => {
-				return (item.name.toLowerCase().indexOf(value.toLowerCase()) > -1) || item.code.toLowerCase().indexOf(value.toLowerCase()) > -1;
+				return (item.title.toLowerCase().indexOf(value.toLowerCase()) > -1) || item.code.toLowerCase().indexOf(value.toLowerCase()) > -1;
 			});
 		}
 	}

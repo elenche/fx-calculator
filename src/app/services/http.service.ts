@@ -31,11 +31,12 @@ export class HttpService {
 	 * Handle the received HTTP error.
 	 * @param error - error to be handled
 	 */
-	private async handleError(error: any = null) {
-		const toast = await this.toastCtrl.create({
+	private handleError(error: any = null) {
+		this.toastCtrl.create({
 			message: 'An error occurred, please try again.',
 			duration: 2000
+		}).then(toast => {
+			toast.present();
 		});
-		toast.present();
 	}
 }

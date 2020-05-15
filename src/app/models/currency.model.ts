@@ -1,10 +1,10 @@
 export class CurrencyModel {
-	name: string;
+	title: string;
 	code: string;
 	flag: string;
 
-	constructor(name: string, code: string, flag: string) {
-		this.name = name;
+	constructor(title: string, code: string, flag: string) {
+		this.title = title;
 		this.code = code;
 		this.flag = flag;
 	}

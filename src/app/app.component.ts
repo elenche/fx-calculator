@@ -24,7 +24,7 @@ export class AppComponent {
 		this.platform.ready().then(() => {
 
 			// Get exchange rates
-			this.ratesService.getRatesByBase();
+			this.ratesService.getRatesByBase().subscribe(() => { });
 
 			// Setup currency list
 			this.ratesService.setCurrencyList();
