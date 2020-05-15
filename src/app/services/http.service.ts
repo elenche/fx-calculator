@@ -34,6 +34,7 @@ export class HttpService {
 	private handleError(error: any = null) {
 		this.toastCtrl.create({
 			message: 'An error occurred, please try again.',
+			position: 'top',
 			duration: 2000
 		}).then(toast => {
 			toast.present();

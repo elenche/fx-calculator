@@ -25,8 +25,7 @@ export class HomePage implements OnInit {
 			this.currentRate = this.ratesService.getRate(this.currencyTo.code);
 		});
 
-		// Setup currencies
-		this.ratesService.setCurrencyList();
+		// Setup base currencies
 		this.currencyFrom = this.ratesService.getCurrency('EUR');
 		this.currencyTo = this.ratesService.getCurrency('USD');
 

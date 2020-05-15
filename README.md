@@ -20,6 +20,7 @@ Technologies:
 	- NZD
 -  Live exchange rates ([ExchangeRatesAPI](https://exchangeratesapi.io/))
 -  Two-way conversion between currency owned and currency desired
+-  Currency flags
 
  
 
