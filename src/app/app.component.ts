@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { RatesService } from './services/rates.service';
 
 @Component({
 	selector: 'app-root',
@@ -12,8 +11,7 @@ import { RatesService } from './services/rates.service';
 })
 export class AppComponent {
 
-	constructor(private ratesService: RatesService,
-		private splashScreen: SplashScreen,
+	constructor(private splashScreen: SplashScreen,
 		private statusBar: StatusBar,
 		private platform: Platform) {
 
@@ -22,13 +20,6 @@ export class AppComponent {
 
 	initializeApp() {
 		this.platform.ready().then(() => {
-
-			// Get exchange rates
-			this.ratesService.getRatesByBase().subscribe(() => { });
-
-			// Setup currency list
-			this.ratesService.setCurrencyList();
-
 			if (this.platform.is('cordova')) {
 				this.statusBar.styleDefault();
 				this.splashScreen.hide();

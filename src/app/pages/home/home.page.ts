@@ -20,9 +20,15 @@ export class HomePage implements OnInit {
 	currentRate: number;
 
 	ngOnInit() {
+		// Get exchange rates
+		this.ratesService.getRatesByBase().subscribe(() => {
+			this.currentRate = this.ratesService.getRate(this.currencyTo.code);
+		});
+
+		// Setup currencies
+		this.ratesService.setCurrencyList();
 		this.currencyFrom = this.ratesService.getCurrency('EUR');
-		this.currencyTo = this.ratesService.getCurrency('USD')
-		this.currentRate = this.ratesService.getRate(this.currencyTo.code);
+		this.currencyTo = this.ratesService.getCurrency('USD');
 
 		this.form = new FormGroup({
 			first: new FormControl(1.00),
